@@ -18,5 +18,11 @@
   "bugs": {
     "url": "https://github.com/gemtechd/build-tests-ts/issues"
   },
-  "homepage": "https://github.com/gemtechd/build-tests-ts#readme"
+  "homepage": "https://github.com/gemtechd/build-tests-ts#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }
