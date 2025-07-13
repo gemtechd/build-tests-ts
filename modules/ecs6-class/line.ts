@@ -19,9 +19,9 @@ export default class Line {
     }
 
     calculateNOfLineFunction() {
-        if (this.slope)
-            this.n = this.point1.y - this.slope * this.point1.x
-    }
+    if (this.slope !== undefined)
+        this.n = this.point1.y - this.slope * this.point1.x
+}
 
     getPointOnXAsis() {
         return this.getPointByY(0)
@@ -33,18 +33,20 @@ export default class Line {
 
 
     getPointByX(x: number) {
-        if (this.slope && this.n) {
-            let y = this.slope * x + this.n
-            return new Point({ x, y })
-        }
+    if (this.slope !== undefined && this.n !== undefined) {
+        let y = this.slope * x + this.n
+        return new Point({ x, y })
     }
+    return undefined;
+}
 
     getPointByY(y: number) {
-        if (this.slope && this.n) {
-            let x = (y - this.n) / this.slope;
-            return new Point({ x, y })
-        }
+    if (this.slope !== undefined && this.n !== undefined) {
+        let x = (y - this.n) / this.slope;
+        return new Point({ x, y })
     }
+    return undefined;
+}
 
 
 }
