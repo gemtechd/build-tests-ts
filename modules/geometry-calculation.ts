@@ -2,8 +2,8 @@ import Line from './ecs6-class/line';
 import Point from './ecs6-class/point';
 
 export const calculateDistance = (point1: Point, point2: Point): number => {
-    let distanceX = (point2.x - point1.x) ** 2;
-    let distanceY = (point2.y - point2.y) ** 2;
+    let distanceX = Math.abs(point2.x - point1.x) ** 2;
+    let distanceY = Math.abs(point2.y - point1.y) ** 2;
     const distance = Math.sqrt(distanceX + distanceY);
     return distance;
 }
@@ -24,6 +24,7 @@ export const calculateJunctionPoint = (line1: Line, line2: Line): Boolean | Poin
             return junctionPoint
         }
     }
+   return undefined
 }
 
 export const isPointOnLine = (line: Line, point: Point): Boolean => {
