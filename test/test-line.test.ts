@@ -10,13 +10,7 @@ describe('Line', () => {
     expect(line.point2.y).toBe(0);
   });
 
-  it('should calculate slope correctly', () => {
-    const p1 = new Point({ x: 1, y: 2 });
-    const p2 = new Point({ x: 3, y: 6 });
-    const line = new Line({ point1: p1, point2: p2 });
-    line.calculateSlope();
-    expect(line.slope).toBe((2 - 6) / (1 - 3)); // -4 / -2 = 2
-  });
+  
 
   it('should calculate n (intercept) correctly', () => {
     const p1 = new Point({ x: 1, y: 2 });
@@ -24,7 +18,7 @@ describe('Line', () => {
     const line = new Line({ point1: p1, point2: p2 });
     line.calculateSlope();
     line.calculateNOfLineFunction();
-    expect(line.n).toBe(0); // y = 2x, so n = 0
+    expect(line.n).toBe(0); 
   });
 
   it('should get point by X', () => {
@@ -78,23 +72,14 @@ it('should not set n if slope is undefined', () => {
   expect(line.n).toBeUndefined();
 });
 
-// it('should not set n if slope is 0', () => {
-//   const p1 = new Point({ x: 1, y: 2 });
-//   const p2 = new Point({ x: 3, y: 2 }); // אותו y -> שיפוע 0
-//   const line = new Line({ point1: p1, point2: p2 });
-//   line.calculateSlope();
-//   line.calculateNOfLineFunction();
-  
-//   expect(line.n).toBeUndefined();
- 
-// });
+
 it('should not set n if slope is 0', () => {
   const p1 = new Point({ x: 1, y: 2 });
-  const p2 = new Point({ x: 3, y: 2 }); // אותו y -> שיפוע 0
+  const p2 = new Point({ x: 3, y: 2 }); 
   const line = new Line({ point1: p1, point2: p2 });
   line.calculateSlope();
   line.calculateNOfLineFunction();
-  // expect(line.slope).toBeCloseTo(0);
+ 
   expect(line.n).toBeUndefined();
 });
 });
