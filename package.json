@@ -6,6 +6,17 @@
   "scripts": {
     "test": "jest"
   },
+  
+
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "compilerOptions": {
+        "esModuleInterop": true
+    },
+
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gemtechd/build-tests-ts.git"
@@ -25,4 +36,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
+
+  
 }
