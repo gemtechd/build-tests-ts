@@ -2,15 +2,13 @@ import { calculateDistance, calculateJunctionPoint, isPointOnLine } from '../mod
 import Line from '../modules/ecs6-class/line';
 import Point from '../modules/ecs6-class/point';
 
-// modules/geometry-calculation.test.ts
-
 describe('calculateDistance', () => {
-    it('מחזירה 0 עבור אותה נקודה', () => {
+    it('returns 0 for the same point', () => {
         const p = new Point({ x: 1, y: 1 });
         expect(calculateDistance(p, p)).toBe(0);
     });
 
-    it('מחזירה מרחק נכון בין שתי נקודות', () => {
+    it('returns correct distance between two points', () => {
         const p1 = new Point({ x: 0, y: 0 });
         const p2 = new Point({ x: 3, y: 4 });
         expect(calculateDistance(p1, p2)).toBe(5);
@@ -18,7 +16,7 @@ describe('calculateDistance', () => {
 });
 
 describe('calculateJunctionPoint', () => {
-    it('מחזירה true עבור קווים חופפים', () => {
+    it('returns true for overlapping lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x:1, y: 1 }) });
         l1.calculateSlope();
         l1.calculateNOfLineFunction();
@@ -28,7 +26,7 @@ describe('calculateJunctionPoint', () => {
         expect(calculateJunctionPoint(l1, l2)).toBe(true);
     });
 
-    it('מחזירה false עבור קווים מקבילים', () => {
+    it('returns false for parallel lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 1, y: 1 }) });
         l1.calculateSlope();
         l1.calculateNOfLineFunction();
@@ -38,16 +36,13 @@ describe('calculateJunctionPoint', () => {
         expect(calculateJunctionPoint(l1, l2)).toBe(false);
     });
 
-    it('מחזירה נקודת חיתוך עבור קווים נחתכים', () => {
+    it('returns intersection point for intersecting lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y:0}), point2: new Point({ x:1, y: 1 }) });
         l1.calculateSlope();
         l1.calculateNOfLineFunction();
         const l2 = new Line({ point1: new Point({ x: 0, y: 1 }), point2: new Point({ x: 1, y: 0 }) });
         l2.calculateSlope();
         l2.calculateNOfLineFunction();
-
-        console.log('l1:', l1.slope, l1.n);
-        console.log('l2:', l2.slope, l2.n);
 
         const result = calculateJunctionPoint(l1, l2) as Point;
         expect(result).toBeInstanceOf(Point);
@@ -57,7 +52,7 @@ describe('calculateJunctionPoint', () => {
 });
 
 describe('isPointOnLine', () => {
-    it('מחזירה true עבור נקודה על הקו', () => {
+    it('returns true for a point on the line', () => {
         const l = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
         l.calculateSlope();
         l.calculateNOfLineFunction();
@@ -65,7 +60,7 @@ describe('isPointOnLine', () => {
         expect(isPointOnLine(l, p)).toBe(true);
     });
 
-    it('מחזירה false עבור נקודה שלא על הקו', () => {
+    it('returns false for a point not on the line', () => {
         const l = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
         l.calculateSlope();
         l.calculateNOfLineFunction();

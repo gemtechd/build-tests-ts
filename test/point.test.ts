@@ -13,18 +13,26 @@ describe('Point', () => {
         expect(p.y).toBe(7);
     });
 
-    it('should move vertically', () => {
+    it('should move vertically up', () => {
         const p = new Point({ x: 1, y: 2 });
         p.moveVertical(3);
         expect(p.y).toBe(5);
+    });
+
+    it('should move vertically down', () => {
+        const p = new Point({ x: 1, y: 5 });
         p.moveVertical(-2);
         expect(p.y).toBe(3);
     });
 
-    it('should move horizontally', () => {
+    it('should move horizontally right', () => {
         const p = new Point({ x: 4, y: 2 });
         p.moveHorizontal(6);
         expect(p.x).toBe(10);
+    });
+
+    it('should move horizontally left', () => {
+        const p = new Point({ x: 10, y: 2 });
         p.moveHorizontal(-3);
         expect(p.x).toBe(7);
     });
