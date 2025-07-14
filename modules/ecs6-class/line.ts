@@ -31,10 +31,12 @@ export default class Line {
 }
 
     getPointOnXAsis() {
+        this.calculateNOfLineFunction();
         return this.getPointByY(0)
     }
 
     getPointOnYAsis() {
+        this.calculateNOfLineFunction();
         return this.getPointByX(0)
     }
 

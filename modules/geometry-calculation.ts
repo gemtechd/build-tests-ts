@@ -9,6 +9,8 @@ export const calculateDistance = (point1: Point, point2: Point): number => {
 }
 
 export const calculateJunctionPoint = (line1: Line, line2: Line): Boolean | Point | undefined => {
+    line1.calculateNOfLineFunction();
+    line2.calculateNOfLineFunction();
     if (line1.slope === line2.slope) {
         if (line1.n === line2.n) {
             return true
@@ -28,6 +30,7 @@ export const calculateJunctionPoint = (line1: Line, line2: Line): Boolean | Poin
 }
 
 export const isPointOnLine = (line: Line, point: Point): Boolean => {
+    line.calculateNOfLineFunction();
     const proxyLine = new Line({ point1: line.point1, point2: point })
     proxyLine.calculateSlope()
     if (line.slope === proxyLine.slope) {
