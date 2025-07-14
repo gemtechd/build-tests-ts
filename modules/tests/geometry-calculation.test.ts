@@ -75,5 +75,19 @@ describe('geometry-calculation module', () => {
         expect(isPointOnLine(line, pointNotOnLine)).toBe(false);
     });
 
+    test('calculateJunctionPoint throws error for undefined slope or n', () => {
+    const p1 = new Point({ x: 0, y: 0 });
+    const p2 = new Point({ x: 2, y: 2 });
+    const line1 = new Line({ point1: p1, point2: p2 });
+    line1.calculateSlope();
+    line1.calculateNOfLineFunction();
+
+    const line2 = new Line({ point1: p1, point2: p1 }); // קו עם אותו נקודה, שיפוע לא מוגדר
+    line2.slope = undefined; // או line2.n = undefined;
+
+    expect(() => calculateJunctionPoint(line1, line2)).toThrow(Error);
+});
+
+
     
 });
