@@ -21,6 +21,7 @@ export default class Line {
     } else {
         this.slope = (this.point2.y - this.point1.y) / dx;
     }
+    return this.slope;
 }
 
     calculateNOfLineFunction() {
