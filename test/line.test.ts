@@ -22,7 +22,6 @@ describe('Line', () => {
         const p1 = new Point({ x: 1, y: 2 });
         const p2 = new Point({ x: 3, y: 6 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         expect(line.n).toBeCloseTo(0);
     });
@@ -31,7 +30,6 @@ describe('Line', () => {
         const p1 = new Point({ x: 0, y: 1 });
         const p2 = new Point({ x: 1, y: 3 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const point = line.getPointByX(2);
         expect(point?.x).toBeCloseTo(2);
@@ -42,7 +40,6 @@ describe('Line', () => {
         const p1 = new Point({ x: 0, y: 1 });
         const p2 = new Point({ x: 1, y: 3 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const point = line.getPointByY(7);
         expect(point?.y).toBeCloseTo(7);
@@ -53,7 +50,6 @@ describe('Line', () => {
         const p1 = new Point({ x: 0, y: 1 });
         const p2 = new Point({ x: 1, y: 3 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const point = line.getPointOnXAsis();
         expect(point?.y).toBeCloseTo(0);
@@ -63,7 +59,6 @@ describe('Line', () => {
         const p1 = new Point({ x: 0, y: 1 });
         const p2 = new Point({ x: 1, y: 3 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const point = line.getPointOnYAsis();
         expect(point?.x).toBeCloseTo(0);

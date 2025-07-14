@@ -18,30 +18,24 @@ describe('calculateDistance', () => {
 describe('calculateJunctionPoint', () => {
     it('returns true for overlapping lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x:1, y: 1 }) });
-        l1.calculateSlope();
         l1.calculateNOfLineFunction();
         const l2 = new Line({ point1: new Point({ x: 2, y: 2 }), point2: new Point({ x: 3, y: 3 }) });
-        l2.calculateSlope();
         l2.calculateNOfLineFunction();
         expect(calculateJunctionPoint(l1, l2)).toBe(true);
     });
 
     it('returns false for parallel lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 1, y: 1 }) });
-        l1.calculateSlope();
         l1.calculateNOfLineFunction();
         const l2 = new Line({ point1: new Point({ x: 0, y: 1 }), point2: new Point({ x: 1, y: 2 }) });
-        l2.calculateSlope();
         l2.calculateNOfLineFunction();
         expect(calculateJunctionPoint(l1, l2)).toBe(false);
     });
 
     it('returns intersection point for intersecting lines', () => {
         const l1 = new Line({ point1: new Point({ x: 0, y:0}), point2: new Point({ x:1, y: 1 }) });
-        l1.calculateSlope();
         l1.calculateNOfLineFunction();
         const l2 = new Line({ point1: new Point({ x: 0, y: 1 }), point2: new Point({ x: 1, y: 0 }) });
-        l2.calculateSlope();
         l2.calculateNOfLineFunction();
 
         const result = calculateJunctionPoint(l1, l2) as Point;
@@ -54,7 +48,6 @@ describe('calculateJunctionPoint', () => {
 describe('isPointOnLine', () => {
     it('returns true for a point on the line', () => {
         const l = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
-        l.calculateSlope();
         l.calculateNOfLineFunction();
         const p = new Point({ x: 1, y: 1 });
         expect(isPointOnLine(l, p)).toBe(true);
@@ -62,7 +55,6 @@ describe('isPointOnLine', () => {
 
     it('returns false for a point not on the line', () => {
         const l = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
-        l.calculateSlope();
         l.calculateNOfLineFunction();
         const p = new Point({ x: 1, y: 2 });
         expect(isPointOnLine(l, p)).toBe(false);

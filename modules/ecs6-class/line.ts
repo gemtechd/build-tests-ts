@@ -25,6 +25,7 @@ export default class Line {
 }
 
     calculateNOfLineFunction() {
+        this.calculateSlope();
     if (this.slope !== undefined)
         this.n = this.point1.y - this.slope * this.point1.x
 }
@@ -49,7 +50,7 @@ export default class Line {
     getPointByY(y: number) {
     if (this.slope === undefined) this.calculateSlope();
     if (this.n === undefined) this.calculateNOfLineFunction();
-    if (this.slope === 0) return undefined; // קו אופקי, אין x יחיד
+    if (this.slope === 0) return undefined; 
     if (this.slope === undefined || this.n === undefined) return undefined;
     const x = (y - this.n) / this.slope;
     return new Point({ x, y });
