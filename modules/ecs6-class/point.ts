@@ -1,15 +1,15 @@
-export default class Point {
+class Point {
     x: number
     y: number
-    constructor({ x = 0, y = 0 }:{x?:number, y?:number} = {}) {
+    constructor({ x = 0, y = 0 }: { x?: number, y?: number } = {}) {
         this.x = x;
         this.y = y;
     }
-    moveVertical(value:number) {
+    moveVertical(value: number) {
         this.y += value;
     }
-    moveHorizontal(value:number) {
+    moveHorizontal(value: number) {
         this.x += value;
     }
 }
-
+export default Point;
