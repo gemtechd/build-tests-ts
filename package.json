@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest"
   },
-  
+
 
   "jest": {
     "preset": "ts-jest",
@@ -36,6 +36,4 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }
-
-  
 }
