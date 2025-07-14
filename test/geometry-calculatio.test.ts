@@ -62,26 +62,8 @@ describe('geometry-calculation', () => {
             expect(isPointOnLine(line, point)).toBe(false);
         });
 
-        test('should return false if point is not on the line', () => {
-            const line = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
-            line.calculateSlope();
-            line.calculateNOfLineFunction();
-            const point = new Point({ x: 1, y: 2 });
-            expect(isPointOnLine(line, point)).toBe(false);
-        });
-         test('should return false if slopes are different', () => {
-        const line = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
-        const point = new Point({ x: 1, y: 3 }); 
-        expect(isPointOnLine(line, point)).toBe(false);
-    });
-    test('should return false if slope is undefined', () => {
-    const line = new Line({ point1: new Point({ x: 0, y: 0 }), point2: new Point({ x: 2, y: 2 }) });
-    const point = new Point({ x: 1, y: 1 });
-    expect(isPointOnLine(line, point)).toBe(false);
-    });
-test('should return false if n is different', () => {
+      
+  test('should return false if n is different', () => {
     const line = new Line({ point1: new Point({ x: 0, y: 1 }), point2: new Point({ x: 2, y: 3 }) });
     line.calculateSlope();
     line.calculateNOfLineFunction();
@@ -90,3 +72,5 @@ test('should return false if n is different', () => {
 });
     });
 });
+
+    

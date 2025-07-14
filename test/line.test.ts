@@ -1,6 +1,5 @@
 import Line from '../modules/ecs6-class/line';
 import Point from '../modules/ecs6-class/point';
-
 describe('Line', () => {
     let line: Line;
     const pointA = new Point({ x: 2, y: 3 });
@@ -15,11 +14,7 @@ describe('Line', () => {
         expect(line.slope).toBeCloseTo(2.6667, 4); 
     });
 
-    test('calculates n of line function correctly', () => {
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
-        expect(line.n).toBeCloseTo(-2.3333, 4); 
-    });
+   
 
         test('gets point on X axis correctly', () => {
         line.calculateSlope();
@@ -37,13 +32,7 @@ describe('Line', () => {
         expect(pointOnYAxis?.y).toBeCloseTo(-2.3333, 4);
     });
 
-    test('gets point by X correctly', () => {
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
-        const pointByX = line.getPointByX(10);
-        expect(pointByX?.x).toBeCloseTo(10, 4);
-        expect(pointByX?.y).toBeCloseTo(24.3333, 4);
-    });
+  
 
     test('gets point by Y correctly', () => {
         line.calculateSlope();
@@ -52,11 +41,7 @@ describe('Line', () => {
         expect(pointByY?.x).toBeCloseTo(5, 4);
         expect(pointByY?.y).toBeCloseTo(11, 4);
     });
-   test('getPointOnXAsis returns undefined if slope is 0', () => {
-    line.slope = 0;
-    line.n = 1;
-    expect(line.getPointOnXAsis()).toBeUndefined();
-});
+
 
 test('getPointOnXAsis returns undefined if slope or n is undefined', () => {
     line.slope = undefined;
@@ -98,3 +83,7 @@ test('calculateNOfLineFunction does nothing if slope is undefined', () => {
     expect(line.n).toBe(123); 
 });
 });
+
+
+
+

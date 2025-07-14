@@ -32,8 +32,7 @@ export const isPointOnLine = (line: Line, point: Point): Boolean => {
     const proxyLine = new Line({ point1: line.point1, point2: point })
     proxyLine.calculateSlope()
     if (line.slope === proxyLine.slope) {
-        proxyLine.calculateNOfLineFunction()
-         
+        proxyLine.calculateNOfLineFunction()    
     }
     return false
 }
