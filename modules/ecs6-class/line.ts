@@ -33,11 +33,11 @@ export default class Line {
 
 
     getPointByX(x: number) {
-        if (this.slope && this.n) {
-            let y = this.slope * x + this.n
-            return new Point({ x, y })
-        }
+    if (this.slope !== undefined && this.n !== undefined) {
+        let y = this.slope * x + this.n;
+        return new Point({ x, y });
     }
+}
 
     getPointByY(y: number) {
         if (this.slope && this.n) {
