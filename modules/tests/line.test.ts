@@ -18,34 +18,29 @@ describe('Line class', () => {
     });
 
     it('should calculate n of line function correctly', () => {
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         expect(line.n).toBe(1); // 2 - 1 * 1 = 1
     });
 
     it('should get point on X axis correctly', () => {
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const pointOnX = line.getPointOnXAsis();
         expect(pointOnX).toEqual(new Point({ x: -1, y: 0 })); // x = (0 - 1) / 1
     });
 
     it('should get point on Y axis correctly', () => {
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const pointOnY = line.getPointOnYAsis();
         expect(pointOnY).toEqual(new Point({ x: 0, y: 1 })); // y = 1 * 0 + 1
     });
 
     it('should get point by X correctly', () => {
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const pointByX = line.getPointByX(2);
         expect(pointByX).toEqual(new Point({ x: 2, y: 3 })); // y = 1 * 2 + 1
     });
 
     it('should get point by Y correctly', () => {
-        line.calculateSlope();
         line.calculateNOfLineFunction();
         const pointByY = line.getPointByY(3);
         expect(pointByY).toEqual(new Point({ x: 2, y: 3 })); // x = (3 - 1) / 1
@@ -66,3 +61,10 @@ describe('Line class', () => {
         expect(line.getPointByY(5)).toBeUndefined();
     });
 });
+
+
+
+
+
+
+

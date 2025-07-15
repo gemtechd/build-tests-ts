@@ -12,24 +12,26 @@ export default class Line {
         this.n = n;
     }
 
-  
-
     calculateSlope() {
         this.slope = (this.point1.y - this.point2.y) / (this.point1.x - this.point2.x)
     }
 
+
     calculateNOfLineFunction() {
+        this.calculateSlope(); // הוספת קריאה כאן
         if (this.slope)
-            this.n = this.point1.y - this.slope * this.point1.x
+            this.n = this.point1.y - this.slope * this.point1.x;
     }
 
     getPointOnXAsis() {
-        return this.getPointByY(0)
+        this.calculateSlope(); // הוספת קריאה כאן
+        return this.getPointByY(0);
+    }
+    getPointOnYAsis() {
+        this.calculateSlope(); // הוספת קריאה כאן
+        return this.getPointByX(0);
     }
 
-    getPointOnYAsis() {
-        return this.getPointByX(0)
-    }
 
 
     getPointByX(x: number) {
@@ -48,3 +50,9 @@ export default class Line {
 
 
 }
+
+
+
+
+
+
