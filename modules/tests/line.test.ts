@@ -14,7 +14,8 @@ describe('Line Class', () => {
         const p1 = new Point({ x: 1, y: 3 });
         const p2 = new Point({ x: 2, y: 5 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
+        const slope = (p2.y - p1.y) / (p2.x - p1.x);
+        line.slope = slope;
         line.calculateNOfLineFunction();
         expect(line.n).toBe(p1.y - line.slope! * p1.x);
     });
@@ -23,8 +24,8 @@ describe('Line Class', () => {
         const p1 = new Point({ x: 1, y: 3 });
         const p2 = new Point({ x: 2, y: 5 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
+        line.slope = (p2.y - p1.y) / (p2.x - p1.x);
+        line.n = p1.y - line.slope * p1.x;
         const point = line.getPointByX(10);
         expect(point?.x).toBe(10);
         expect(point?.y).toBeCloseTo(line.slope! * 10 + line.n!);
@@ -34,8 +35,8 @@ describe('Line Class', () => {
         const p1 = new Point({ x: 1, y: 3 });
         const p2 = new Point({ x: 2, y: 5 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
+        line.slope = (p2.y - p1.y) / (p2.x - p1.x);
+        line.n = p1.y - line.slope * p1.x;
         const point = line.getPointByY(7);
         expect(point?.y).toBe(7);
         expect(point?.x).toBeCloseTo((7 - line.n!) / line.slope!);
@@ -45,8 +46,8 @@ describe('Line Class', () => {
         const p1 = new Point({ x: 1, y: 3 });
         const p2 = new Point({ x: 2, y: 5 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
+        line.slope = (p2.y - p1.y) / (p2.x - p1.x);
+        line.n = p1.y - line.slope * p1.x;
         const point = line.getPointOnXAsis();
         expect(point?.y).toBe(0);
     });
@@ -55,8 +56,8 @@ describe('Line Class', () => {
         const p1 = new Point({ x: 1, y: 3 });
         const p2 = new Point({ x: 2, y: 5 });
         const line = new Line({ point1: p1, point2: p2 });
-        line.calculateSlope();
-        line.calculateNOfLineFunction();
+        line.slope = (p2.y - p1.y) / (p2.x - p1.x);
+        line.n = p1.y - line.slope * p1.x;
         const point = line.getPointOnYAsis();
         expect(point?.x).toBe(0);
     });
