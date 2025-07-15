@@ -9,24 +9,28 @@ export const calculateDistance = (point1: Point, point2: Point): number => {
 }
 
 
+
 export const calculateJunctionPoint = (line1: Line, line2: Line): boolean | Point | undefined => {
     if (line1.slope === undefined || line2.slope === undefined || line1.n === undefined || line2.n === undefined) {
-        return undefined; 
+        return undefined;
     }
 
-   
+    
     if (line1.slope === line2.slope && line1.n === line2.n) {
         return true; 
-    } else if (line1.slope === line2.slope) {
-        return false; 
-    } else {
-        const x = (line1.n - line2.n) / (line2.slope - line1.slope);
-        const junctionPoint = line1.getPointByX(x);
-        return junctionPoint; 
     }
+
+  
+    if (line1.slope === line2.slope) {
+        return false; 
+    }
+
+    
+    const x = (line1.n - line2.n) / (line2.slope - line1.slope);
+    const y = line1.slope * x + line1.n;
+    const junctionPoint = new Point({x, y});
+    return junctionPoint; 
 };
-
-
 export const isPointOnLine = (line: Line, point: Point): boolean => {
     const proxyLine = new Line({ point1: line.point1, point2: point });
     proxyLine.calculateSlope();
@@ -35,4 +39,4 @@ export const isPointOnLine = (line: Line, point: Point): boolean => {
         return line.n === proxyLine.n;
     }
     return false;
-};
+     };
