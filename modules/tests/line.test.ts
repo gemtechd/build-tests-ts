@@ -29,6 +29,22 @@ describe("Line Class", () => {
         expect(line.n).toBe(0); // n = y - slope * x => 2 - 2 * 1 = 0
     });
 
+    test("ensureSlopeAndN ensures slope and n are calculated", () => {
+        const point1 = new Point({ x: 1, y: 2 });
+        const point2 = new Point({ x: 3, y: 6 });
+        const line = new Line({ point1, point2 });
+
+        // תחילה לא מוגדרים
+        expect(line.slope).toBeUndefined();
+        expect(line.n).toBeUndefined();
+
+        line.ensureSlopeAndN();
+
+        // עכשיו השיפוע ו-n צריכים להיות מחושבים
+        expect(line.slope).toBe(2);
+        expect(line.n).toBe(0);
+    });
+
     test("getPointOnXAsis returns correct point", () => {
         const point1 = new Point({ x: 1, y: 2 });
         const point2 = new Point({ x: 3, y: 6 });
@@ -63,5 +79,21 @@ describe("Line Class", () => {
         line.calculateNOfLineFunction();
         const point = line.getPointByY(4);
         expect(point).toEqual(new Point({ x: 2, y: 4 })); // x = (y - n) / slope => (4 - 0) / 2 = 2
+    });
+
+    // הוספת מקרה גבולי
+    test("getPointByX handles undefined slope or n", () => {
+        const point1 = new Point({ x: 1, y: 2 });
+        const point2 = new Point({ x: 3, y: 6 });
+        const line = new Line({ point1, point2 });
+        
+        // לפני שהחישוב יבוצע
+        expect(line.slope).toBeUndefined();
+        expect(line.n).toBeUndefined();
+
+        line.getPointByX(2); // תעשה חישוב בשיטה זו
+
+        expect(line.slope).toBe(2); // השיפוע עכשיו אמור להיות מחושב
+        expect(line.n).toBe(0); // n אמור להיות מחושב
     });
 });
