@@ -37,5 +37,3 @@ export const isPointOnLine = (line: Line, point: Point): Boolean => {
     }
     return false
 }
-
-
