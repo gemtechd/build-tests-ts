@@ -28,11 +28,6 @@ describe("Point Class", () => {
     });
 });
 
-
-
-
-
-
 test("Constructor initializes with default values", () => {
     const line = new Line();
     expect(line.point1).toEqual(new Point());
