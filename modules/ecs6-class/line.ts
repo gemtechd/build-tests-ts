@@ -15,11 +15,14 @@ export default class Line {
   
 
     calculateSlope() {
-        this.slope = (this.point1.y - this.point2.y) / (this.point1.x - this.point2.x)
+        if (this.point1.x === this.point2.x) {
+            throw new Error("Vertical line - slope is undefined");
+        }
+        this.slope = (this.point1.y - this.point2.y) / (this.point1.x - this.point2.x);
     }
 
     calculateNOfLineFunction() {
-        if (this.slope)
+        if (this.slope !== undefined)
             this.n = this.point1.y - this.slope * this.point1.x
     }
 
@@ -33,14 +36,14 @@ export default class Line {
 
 
     getPointByX(x: number) {
-        if (this.slope && this.n) {
-            let y = this.slope * x + this.n
-            return new Point({ x, y })
-        }
+    if (this.slope !== undefined && this.n !== undefined) {
+        let y = this.slope * x + this.n;
+        return new Point({ x, y });
     }
+}
 
     getPointByY(y: number) {
-        if (this.slope && this.n) {
+       if (this.slope !== undefined && this.n !== undefined) {
             let x = (y - this.n) / this.slope;
             return new Point({ x, y })
         }
